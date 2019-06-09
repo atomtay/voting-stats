@@ -7,7 +7,7 @@ class Form extends React.Component {
             candidate: '',
             state: '',
             votes: 0,
-            nodes: []
+            nodes: [],
         }
         this.addNode = this.addNode.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -15,21 +15,23 @@ class Form extends React.Component {
 
     addNode(event){
         event.preventDefault()
-        console.log(this.state.candidate)
         const formName = this.state.candidate
         const formState = this.state.state
         const formVotes = this.state.votes
-        const newCandidate = new Object()
-        newCandidate.name = formName
-        
+
+        let candidate = {
+            [formName]: {
+                abbr: formState,
+                votes: parseInt(formVotes)
+            }
+        }
+        console.log(candidate)
         
 
+    }
 
-        console.log(newCandidate)
-        let oldNodes = this.state.nodes
-        let newNodes = oldNodes.push(newCandidate)
-        console.log(newNodes)
-        this.setState({nodes: newNodes})
+    getName(){
+        return this.state.candidate
     }
 
     handleChange(event){
