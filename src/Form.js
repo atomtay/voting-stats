@@ -19,22 +19,14 @@ class Form extends React.Component {
         const formState = this.state.state
         const formVotes = this.state.votes
 
-        let candidate = {
-            [formName]: {
-                abbr: formState,
-                votes: parseInt(formVotes)
-            }
-        }
-        
+     
         let oldNodes = this.state.nodes
-        console.log(typeof(oldNodes))
         oldNodes.push({
             [formName]: {
                 abbr: formState,
                 votes: parseInt(formVotes)
             }
         })
-        
         
         this.setState({nodes: oldNodes})
     }
@@ -46,11 +38,13 @@ class Form extends React.Component {
 
     render(){
         let formStateSelect = []
-        // let results = []
+        let results = []
 
-        // this.state.nodes.map(entry => {
-        //     return results.push(<pre class="debug">entry</pre>)
-        // })
+        this.state.nodes.map(entry => {
+            console.log({entry})
+            return results.push(<pre className="debug" key={entry}>{JSON.stringify(entry)}</pre>)
+        })
+
         this.props.states.map(state => {
             return formStateSelect.push(<option value={state.props.value} key={state.props.value}>{state.props.value}</option>)
         })
@@ -66,6 +60,7 @@ class Form extends React.Component {
                 <br/><input type="number" name="votes" value={this.state.value} onChange={this.handleChange}/>
                 <br/><input type="submit"/>
             </form>
+            {results}
         </div>
         )
     }
