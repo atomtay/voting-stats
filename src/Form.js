@@ -25,13 +25,18 @@ class Form extends React.Component {
                 votes: parseInt(formVotes)
             }
         }
-        console.log(candidate)
         
-
-    }
-
-    getName(){
-        return this.state.candidate
+        let oldNodes = this.state.nodes
+        console.log(typeof(oldNodes))
+        oldNodes.push({
+            [formName]: {
+                abbr: formState,
+                votes: parseInt(formVotes)
+            }
+        })
+        
+        
+        this.setState({nodes: oldNodes})
     }
 
     handleChange(event){
@@ -41,6 +46,11 @@ class Form extends React.Component {
 
     render(){
         let formStateSelect = []
+        // let results = []
+
+        // this.state.nodes.map(entry => {
+        //     return results.push(<pre class="debug">entry</pre>)
+        // })
         this.props.states.map(state => {
             return formStateSelect.push(<option value={state.props.value} key={state.props.value}>{state.props.value}</option>)
         })
@@ -50,9 +60,9 @@ class Form extends React.Component {
             <form onSubmit={this.addNode}>
                 <input type="text" name="candidate" value={this.state.value} onChange={this.handleChange}/>
                 <br/><select value={this.state.state} name="state" onChange={this.handleChange}>
-          <option value="" disabled>Select a state</option>
-          {formStateSelect}
-        </select>
+                    <option value="" disabled>Select a state</option>
+                    {formStateSelect}
+                </select>
                 <br/><input type="number" name="votes" value={this.state.value} onChange={this.handleChange}/>
                 <br/><input type="submit"/>
             </form>
