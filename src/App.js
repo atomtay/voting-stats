@@ -18,6 +18,14 @@ class App extends React.Component {
     this.setVotes=this.setVotes.bind(this)
   }
 
+  containsDem(string){
+    return string.includes("Democrat")
+  }
+
+  containsRep(string){
+    return string.includes("Republican")
+  }
+
   setVotes(event,race){
     let repVotes = 0
     let demVotes = 0
@@ -27,10 +35,10 @@ class App extends React.Component {
     Object.entries(race).forEach(([key,value]) => {
       Object.entries(value).forEach(([key,value]) => {
         if (value.id.slice(-2) === newSelectedState){
-          if(value.parties[0]==="Republican"){
+          if(value.parties.some(this.containsRep)){
             repVotes = value.votes
           }
-          else if (value.parties[0]==="Democratic"){
+          else if (value.parties.some(this.containsDem)){
             demVotes = value.votes
           }
           else{
@@ -67,7 +75,7 @@ class App extends React.Component {
           <option value="" disabled>Select a state</option>
           {raceSelection}
         </select>
-      <Results repVotes2004={this.state.repVote} demVotes2004={this.state.demVote} otherVotes2004={this.state.otherVote}/>
+      <Results votes2004={this.state.votes2004} votes2008={this.state.votes2008} votes2012={this.state.votes2012}/>
       </div>
     );
   }

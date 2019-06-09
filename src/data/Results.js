@@ -14,7 +14,7 @@ class Results extends React.Component {
           borderWidth: 1,
           hoverBackgroundColor: 'rgba(233,11,11,.5)',
           hoverBorderColor: 'rgba(145,2,2,.5)',
-          data: [this.props.repVotes2004,7,4]
+          data: [this.props.votes2004[0],this.props.votes2008[0],this.props.votes2012[0]]
         },
         {
           label: "Democratic votes",
@@ -23,7 +23,7 @@ class Results extends React.Component {
           borderWidth: 1,
           hoverBackgroundColor: 'rgba(11,11,233,.5)',
           hoverBorderColor: 'rgba(2,2,99,.5)',
-          data: [this.props.demVotes2004,3,5]
+          data: [this.props.votes2004[1],this.props.votes2008[1],this.props.votes2012[1]]
         },
         {
           label: "Other votes",
@@ -32,7 +32,7 @@ class Results extends React.Component {
           borderWidth: 1,
           hoverBackgroundColor: 'rgba(233,233,11,.5)',
           hoverBorderColor: 'rgba(233,233,5,.5)',
-          data: [this.props.otherVotes2004,2,6]
+          data: [this.props.votes2004[2],this.props.votes2008[2],this.props.votes2012[2]]
         }
       ]
     };

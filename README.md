@@ -66,3 +66,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+Notes to self:
+- There are some weird edge cases, like where John Kerry ran as a "Democratic-Nonpartisan League" member in North Dakota in 2004. Should he count as a Democrat or as Third Party?
+- Would be potentially interesting to show third party as a stacked bar chart to cover these instances, but that may also get messy given how incredibly small these cases are in most states
