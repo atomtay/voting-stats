@@ -6,7 +6,7 @@ import { Bar } from 'react-chartjs-2'
 class Results extends React.Component {
   render(){
     const data = {
-      labels: ['Republican','Democrat','Other'],
+      labels: ['Republican','Democratic','Other'],
       datasets: [
         {
           label: 'Votes',
@@ -15,7 +15,7 @@ class Results extends React.Component {
           borderWidth: 1,
           hoverBackgroundColor: 'rgba(255,99,132,0.4)',
           hoverBorderColor: 'rgba(255,99,132,1)',
-          data: [1, 2, 3]
+          data: [this.props.repVotes, this.props.demVotes, this.props.otherVotes]
         }
       ]
     };
