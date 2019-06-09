@@ -4,27 +4,35 @@ import ResultData from './results_2004.json'
 
 class Results extends React.Component {
   render(){
-    //console.log(ResultData)
-    const list = []
+    let demVote = 0
+    let repVote = 0
+    let otherVote = 0
 
 
     Object.entries(ResultData).forEach(([key,value]) => {
-      //console.log(key)
       Object.entries(value).forEach(([key,value]) => {
-        //console.log(key)
-        //console.log(value)
-        Object.entries(value).forEach(([key,value]) => {
-         // console.log(key)
-          console.log(value)
-        })
+        if(value.parties[0]==="Republican"){
+          repVote = value.votes
+        }
+        else if (value.parties[0]==="Democratic"){
+          demVote = value.votes
+        }
+        else{
+          otherVote+=value.votes
+        }
       })
+        console.log(key.slice(-2))
+        console.log("Republican votes: " + repVote)
+        console.log("Democratic votes: " + demVote)
+        console.log("Other votes: " + otherVote)
     })
+
     
     
     return (
       <div>
         hello world!
-        {list}
+        
       </div>
     )
   }
