@@ -3,21 +3,22 @@ import ResultData from './results_2004.json'
 
 
 class Results extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: ''
-    };
-  }
-
-
   render(){
-    console.log(ResultData)
+    //console.log(ResultData)
     const list = []
-    Object.keys(ResultData).map(key => (
-      list.push(<p>{key}</p>)
-    ))
 
+
+    Object.entries(ResultData).forEach(([key,value]) => {
+      //console.log(key)
+      Object.entries(value).forEach(([key,value]) => {
+        //console.log(key)
+        //console.log(value)
+        Object.entries(value).forEach(([key,value]) => {
+         // console.log(key)
+          console.log(value)
+        })
+      })
+    })
     
     
     return (
@@ -28,4 +29,5 @@ class Results extends React.Component {
     )
   }
 }
+
 export default Results;
