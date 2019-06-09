@@ -5,11 +5,10 @@ import { Bar } from 'react-chartjs-2'
 class Results extends React.Component {
   render(){
     const data = {
-      //labels: ['Republican','Democratic','Other'],
       labels: ['2004','2008','2012'],
       datasets: [
         {
-          label: "Republican",
+          label: "Republican votes",
           backgroundColor: 'rgba(233,11,11,.4)',
           borderColor: 'rgba(145,2,2,.4)',
           borderWidth: 1,
@@ -18,7 +17,7 @@ class Results extends React.Component {
           data: [this.props.repVotes2004,7,4]
         },
         {
-          label: "Democratic",
+          label: "Democratic votes",
           backgroundColor: 'rgba(11,11,233,.4)',
           borderColor: 'rgba(2,2,99,.4)',
           borderWidth: 1,
@@ -27,7 +26,7 @@ class Results extends React.Component {
           data: [this.props.demVotes2004,3,5]
         },
         {
-          label: "Other",
+          label: "Other votes",
           backgroundColor: 'rgba(233,233,11,.4)',
           borderColor: 'rgba(233,233,5,.4)',
           borderWidth: 1,
@@ -46,7 +45,6 @@ class Results extends React.Component {
           }
       }]
   }}
-    
     
     return (
       <div>
