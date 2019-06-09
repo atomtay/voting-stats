@@ -1,5 +1,6 @@
 import React from 'react';
-import Results from './data/Results';
+import Results from './Results';
+import Form from './Form';
 import results_2004 from './data/results_2004.json';
 import results_2008 from './data/results_2008.json';
 import results_2012 from './data/results_2012.json';
@@ -62,21 +63,22 @@ class App extends React.Component {
   }
 
   render() {
-    let raceSelection = []
+    let stateSelection = []
 
     Object.entries(results_2004).forEach(([key,value]) => {
       const state = key.slice(-2)
-      raceSelection.push(<option value={state}>{state}</option>)
+      stateSelection.push(<option value={state} key={key}>{state}</option>)
     })
 
     return (
-      <div>
+      <main>
         <select value={this.state.selectedState} onChange={this.updateRace}>
           <option value="" disabled>Select a state</option>
-          {raceSelection}
+          {stateSelection}
         </select>
       <Results votes2004={this.state.votes2004} votes2008={this.state.votes2008} votes2012={this.state.votes2012}/>
-      </div>
+      <Form states={stateSelection}/>
+      </main>
     );
   }
 }
