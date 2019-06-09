@@ -22,10 +22,11 @@ class App extends React.Component {
     let repVotes = 0
     let demVotes = 0
     let otherVotes = 0
+    let selectedState = event.target.value
 
     Object.entries(results_2004).forEach(([key,value]) => {
       Object.entries(value).forEach(([key,value]) => {
-        if (value.id === event.target.value){
+        if (value.id === selectedState){
           if(value.parties[0]==="Republican"){
             repVotes = value.votes
           }
@@ -42,7 +43,7 @@ class App extends React.Component {
     this.setState({ repVote:repVotes })
     this.setState({ demVote:demVotes })
     this.setState({ otherVote:otherVotes })
-    this.setState({ selectedRace: event.target.value })
+    this.setState({ selectedRace:selectedState })
   }
 
   render() {
@@ -58,7 +59,7 @@ class App extends React.Component {
           <option value="" disabled>Select a race (year/state)</option>
           {raceSelection}
         </select>
-      <Results repVotes={this.state.repVote} demVotes={this.state.demVote} otherVotes={this.state.otherVote}/>
+      <Results repVotes2004={this.state.repVote} demVotes2004={this.state.demVote} otherVotes2004={this.state.otherVote}/>
       </div>
     );
   }

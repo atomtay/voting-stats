@@ -5,24 +5,52 @@ import { Bar } from 'react-chartjs-2'
 class Results extends React.Component {
   render(){
     const data = {
-      labels: ['Republican','Democratic','Other'],
+      //labels: ['Republican','Democratic','Other'],
+      labels: ['2004','2008','2012'],
       datasets: [
         {
-          label: 'Votes',
-          backgroundColor: ['rgba(233,11,11,.4)','rgba(11,11,233,.4)','rgba(233,233,11,.4)'],
-          borderColor: ['rgba(145,2,2,.4)','rgba(2,2,99,.4)','rgba(233,233,5,.4)'],
+          label: "Republican",
+          backgroundColor: 'rgba(233,11,11,.4)',
+          borderColor: 'rgba(145,2,2,.4)',
           borderWidth: 1,
-          hoverBackgroundColor: ['rgba(233,11,11,.5)','rgba(11,11,233,.5)','rgba(233,233,11,.5)'],
-          hoverBorderColor: ['rgba(145,2,2,.5)','rgba(2,2,99,.5)','rgba(233,233,5,.5)'],
-          data: [this.props.repVotes, this.props.demVotes, this.props.otherVotes]
+          hoverBackgroundColor: 'rgba(233,11,11,.5)',
+          hoverBorderColor: 'rgba(145,2,2,.5)',
+          data: [this.props.repVotes2004,7,4]
+        },
+        {
+          label: "Democratic",
+          backgroundColor: 'rgba(11,11,233,.4)',
+          borderColor: 'rgba(2,2,99,.4)',
+          borderWidth: 1,
+          hoverBackgroundColor: 'rgba(11,11,233,.5)',
+          hoverBorderColor: 'rgba(2,2,99,.5)',
+          data: [this.props.demVotes2004,3,5]
+        },
+        {
+          label: "Other",
+          backgroundColor: 'rgba(233,233,11,.4)',
+          borderColor: 'rgba(233,233,5,.4)',
+          borderWidth: 1,
+          hoverBackgroundColor: 'rgba(233,233,11,.5)',
+          hoverBorderColor: 'rgba(233,233,5,.5)',
+          data: [this.props.otherVotes2004,2,6]
         }
       ]
     };
+
+    const options = {
+      scales: {
+        yAxes: [{
+          ticks: {
+              beginAtZero: true
+          }
+      }]
+  }}
     
     
     return (
       <div>
-        <Bar data={data} />
+        <Bar data={data} options={options}/>
       </div>
     )
   }
