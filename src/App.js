@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
-import Results from './data/Results'
-import ResultData from './data/results_2004.json'
+import Results from './data/Results';
+import results_2004 from './data/results_2004.json';
+import results_2008 from './data/results_2008.json';
+import results_2012 from './data/results_2012.json';
 
 
 class App extends React.Component {
@@ -21,7 +23,7 @@ class App extends React.Component {
     let demVotes = 0
     let otherVotes = 0
 
-    Object.entries(ResultData).forEach(([key,value]) => {
+    Object.entries(results_2004).forEach(([key,value]) => {
       Object.entries(value).forEach(([key,value]) => {
         if (value.id === event.target.value){
           if(value.parties[0]==="Republican"){
@@ -46,7 +48,7 @@ class App extends React.Component {
   render() {
     let raceSelection = []
 
-    Object.entries(ResultData).forEach(([key,value]) => {
+    Object.entries(results_2004).forEach(([key,value]) => {
       raceSelection.push(<option value={key}>{key}</option>)
     })
 

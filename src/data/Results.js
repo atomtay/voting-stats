@@ -1,5 +1,4 @@
 import React from 'react';
-import ResultData from './results_2004.json'
 import { Bar } from 'react-chartjs-2'
 
 
@@ -10,11 +9,11 @@ class Results extends React.Component {
       datasets: [
         {
           label: 'Votes',
-          backgroundColor: 'rgba(255,99,132,0.2)',
-          borderColor: 'rgba(255,99,132,1)',
+          backgroundColor: ['rgba(233,11,11,.4)','rgba(11,11,233,.4)','rgba(233,233,11,.4)'],
+          borderColor: ['rgba(145,2,2,.4)','rgba(2,2,99,.4)','rgba(233,233,5,.4)'],
           borderWidth: 1,
-          hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-          hoverBorderColor: 'rgba(255,99,132,1)',
+          hoverBackgroundColor: ['rgba(233,11,11,.5)','rgba(11,11,233,.5)','rgba(233,233,11,.5)'],
+          hoverBorderColor: ['rgba(145,2,2,.5)','rgba(2,2,99,.5)','rgba(233,233,5,.5)'],
           data: [this.props.repVotes, this.props.demVotes, this.props.otherVotes]
         }
       ]
