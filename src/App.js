@@ -72,6 +72,7 @@ class App extends React.Component {
 
     return (
       <main>
+        <h1>U.S. Election Results</h1>
         <select value={this.state.selectedState} onChange={this.updateRace}>
           <option value="" disabled>Select a state</option>
           {stateSelection}
