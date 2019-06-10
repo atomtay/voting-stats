@@ -41,7 +41,6 @@ class Form extends React.Component {
         let results = []
 
         this.state.nodes.map(entry => {
-            console.log({entry})
             return results.push(<pre className="debug" key={entry}>{JSON.stringify(entry)}</pre>)
         })
 
